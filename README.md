@@ -1,20 +1,25 @@
 # EEG Simulator
 
-A desktop demonstration that generates synthetic EEG-like signals at 250 samples per second. Switch between eyes closed, relaxed eyes open, and concentrating modes to see the waveform, power spectrum, simulated 12-bit ADC output, and an illustrative state detector. Export the generated samples as CSV.
+A desktop and browser demonstration of synthetic EEG-like signals. The public browser version runs at `https://eeg-simulator.nefs.gr`.
 
-This is a simulation only. It does not read electrodes or diagnose a person's condition. The state thresholds are chosen for these generated signals and are not suitable for real EEG data.
+Neither version reads electrodes or diagnoses a condition. The generated rhythms, detector thresholds, and hardware model are illustrative.
 
-## Run
+## Browser version
 
-Install Python 3.10 or newer. From this folder:
+```powershell
+npm install
+npm run dev
+```
+
+Run `npm test` for signal and detector checks, then `npm run build` for the production build. The web app lives in `src/` and deploys from this repository to Vercel. It does not store visitor data on a server. Exported CSV data stays in the visitor's browser until they download it.
+
+## Python desktop version
+
+Install Python 3.10 or newer, then:
 
 ```powershell
 python -m pip install -r requirements.txt
 python eeg_simulator.py
 ```
 
-Select a mode with the buttons. Use Pause, Reset, and Export CSV below the plots. CSV files contain elapsed time, reconstructed signal in microvolts, ADC count, and selected simulation mode.
-
-## Model
-
-The generator combines alpha, theta, and beta sinusoids with correlated noise. The amplifier and ADC model applies a gain of 10,000, a 2.5 V offset, clipping to 0–3.3 V, and 12-bit quantization. The spectrum uses Welch's method. The detector smooths one-second alpha-band power and applies hysteresis. These are simplified, illustrative choices, not a validated EEG acquisition system.
+The desktop app includes the same three synthetic modes, waveform and spectrum plots, a simulated 12-bit ADC, an illustrative detector, and CSV export.

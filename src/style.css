@@ -1,0 +1,60 @@
+:root { color-scheme: dark; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; --background:#0a0a0b; --foreground:#f2f2f3; --muted:#a0a0a9; --card:#141416; --line:#26262b; --line-strong:#3c3c43; --accent:#f2f2f3; --accent-contrast:#0a0a0b; --focus:#f2f2f3; --accent-soft:#232326; background:var(--background); color:var(--foreground); }
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { margin:0; }
+button, a { -webkit-tap-highlight-color:transparent; }
+a { color:inherit; }
+a:focus-visible, button:focus-visible { outline:2px solid var(--focus); outline-offset:3px; }
+.skip-link { position:fixed; top:0; left:1rem; z-index:20; transform:translateY(-150%); padding:.8rem 1rem; background:var(--card); }
+.skip-link:focus-visible { transform:translateY(0); }
+.site-header, .site-footer { display:flex; justify-content:space-between; align-items:center; gap:1rem; max-width:1200px; margin:auto; padding:1.25rem 2rem; }
+.site-header { min-height:5rem; border-bottom:1px solid var(--line); }
+.wordmark { font-size:1.2rem; font-weight:750; letter-spacing:-.06em; text-decoration:none; }
+.wordmark span { color:var(--muted); }
+.site-header nav { display:flex; gap:1.5rem; }
+.site-header nav a, .site-footer a { font-size:.9rem; text-decoration:none; }
+.site-header nav a:hover, .site-footer a:hover { text-decoration:underline; }
+main { max-width:1200px; margin:auto; padding:0 2rem; }
+.intro { max-width:53rem; padding:6rem 0 5rem; }
+.eyebrow { margin:0 0 1rem; color:var(--muted); font-size:.75rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; }
+.intro h1 { font-size:clamp(3rem,8vw,6.5rem); letter-spacing:-.075em; line-height:1; margin:0 0 2rem; }
+.lede { max-width:45rem; font-size:clamp(1.18rem,2.4vw,1.7rem); line-height:1.55; margin:0; }
+.intro-actions { display:flex; flex-wrap:wrap; gap:.75rem; margin:2rem 0; }
+.btn { display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:.65rem 1.1rem; border:1px solid var(--line-strong); border-radius:0; font-size:.92rem; font-weight:600; font-family:inherit; text-decoration:none; cursor:pointer; }
+.btn:disabled { opacity:.5; cursor:not-allowed; }
+.btn-primary { background:var(--accent); color:var(--accent-contrast); border-color:var(--accent); }
+.btn-secondary { background:var(--card); color:var(--foreground); }
+.btn:hover:not(:disabled) { opacity:.88; }
+.disclaimer, .about-note { max-width:45rem; color:var(--muted); line-height:1.6; }
+.simulator-section, .about-section { border-top:1px solid var(--line); padding:4rem 0 5rem; scroll-margin-top:1rem; }
+.section-heading { max-width:49rem; }
+h2 { font-size:clamp(1.8rem,4vw,3rem); letter-spacing:-.05em; margin:0 0 1rem; }
+.section-heading > p:last-child { color:var(--muted); line-height:1.7; margin:0; }
+.eeg-sim { margin-top:2.5rem; }
+.eeg-sim-toolbar, .eeg-sim-actions { display:flex; flex-wrap:wrap; gap:.75rem; }
+.eeg-sim-status { margin:1.5rem 0 1rem; color:var(--muted); }
+.eeg-sim-plots { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1rem; }
+.card { background:var(--card); }
+.eeg-sim-plot { min-width:0; padding:1.25rem; }
+.eeg-sim-plot-heading { display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:.5rem; margin-bottom:1rem; }
+.eeg-sim-plot-heading h3 { margin:0; font-size:1.1rem; }
+.eeg-sim-plot-heading span, .eeg-sim-axis, .eeg-sim-detail, .eeg-sim-note { color:var(--muted); }
+.eeg-sim-plot svg { display:block; width:100%; height:auto; }
+.eeg-sim-grid { fill:none; stroke:var(--line-strong); stroke-width:1; }
+.eeg-sim-trace { fill:none; stroke:var(--foreground); stroke-width:2; stroke-linejoin:round; }
+.eeg-sim-axis { display:flex; justify-content:space-between; margin-top:.5rem; }
+.eeg-sim-readings { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:1rem; margin-top:1rem; }
+.eeg-sim-readings > div { min-width:0; padding:1rem; border:1px solid var(--line); }
+.eeg-sim-readings span, .eeg-sim-readings strong { display:block; }
+.eeg-sim-readings span { color:var(--muted); margin-bottom:.5rem; }
+.eeg-sim-readings strong { overflow-wrap:anywhere; }
+.eeg-sim-detail { margin:1.5rem 0; line-height:1.7; }
+.eeg-sim-note { margin:1.5rem 0 0; line-height:1.6; }
+.about-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1.5rem; margin:2rem 0; }
+.about-grid > div { border-top:1px solid var(--line-strong); padding-top:1.2rem; }
+.about-grid h3 { margin:0 0:.75rem; }
+.about-grid p { color:var(--muted); line-height:1.65; margin:0; }
+.site-footer { border-top:1px solid var(--line); color:var(--muted); font-size:.9rem; padding-block:2rem; }
+@media (max-width:800px) { .eeg-sim-plots, .about-grid { grid-template-columns:1fr; } .eeg-sim-readings { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media (max-width:600px) { .site-header, .site-footer { padding-inline:1rem; } .site-header nav { gap:.75rem; } .site-header nav a { font-size:.75rem; } main { padding-inline:1rem; } .intro { padding:4rem 0; } .simulator-section, .about-section { padding:3rem 0; } .eeg-sim-toolbar .btn { flex:1 1 100%; } }
+@media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
